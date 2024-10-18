@@ -1,0 +1,39 @@
+{
+	"name": "react-slate1",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"lint": "eslint .",
+		"preview": "vite preview",
+		"format": "biome format --write . && dprint fmt",
+		"check": "biome check --write . && dprint check",
+		"tfrm": "cd deploy && node rmtf.mjs",
+		"tfinit": "cd deploy && terraform init -upgrade",
+		"tfapply": "cd deploy && terraform apply -auto-approve",
+		"deploy": "pnpm run build && cd deploy && terraform apply -auto-approve",
+		"trivy:check": "trivy fs . && trivy config .",
+		"trivy:license": "trivy fs --scanners license --severity HIGH,CRITICAL .",
+		"license": "license-checker --csv | awk -F, 'BEGIN {OFS=\",\"} {temp=$2; $2=$3; $3=temp; print}' > tmp-license.csv"
+	},
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.12.0",
+		"@types/react": "^18.3.11",
+		"@types/react-dom": "^18.3.1",
+		"@vitejs/plugin-react-swc": "^3.7.1",
+		"eslint": "^9.12.0",
+		"eslint-plugin-react-hooks": "5.1.0-rc-fb9a90fa48-20240614",
+		"eslint-plugin-react-refresh": "^0.4.12",
+		"globals": "^15.11.0",
+		"typescript": "^5.6.3",
+		"typescript-eslint": "^8.10.0",
+		"vite": "^5.4.9"
+	},
+	"packageManager": "pnpm@9.12.0+sha512.4abf725084d7bcbafbd728bfc7bee61f2f791f977fd87542b3579dcb23504d170d46337945e4c66485cd12d588a0c0e570ed9c477e7ccdd8507cf05f3f92eaca"
+}
