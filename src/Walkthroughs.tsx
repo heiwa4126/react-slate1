@@ -31,7 +31,16 @@ const App = () => {
 	// Add the editable component inside the context.
 	return (
 		<Slate editor={editor} initialValue={initialValue}>
-			<Editable />
+			<Editable
+				onKeyDown={(event) => {
+					if (event.key === "&") {
+						// Prevent the ampersand character from being inserted.
+						event.preventDefault();
+						// Execute the `insertText` method when the event occurs.
+						editor.insertText("and");
+					}
+				}}
+			/>
 		</Slate>
 	);
 };
