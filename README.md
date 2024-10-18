@@ -46,3 +46,13 @@ declare module "slate" {
 次に、slate モジュールの型定義を拡張するための宣言が行われています。declare module "slate"という宣言は、既存の slate モジュールに新しい型情報を追加するためのものです。この中で、CustomTypes というインターフェースが定義されており、Editor、Element、および Text という 3 つのプロパティを持ちます。Editor は BaseEditor と ReactEditor の両方を拡張した型であり、Element は先ほど定義した CustomElement 型、Text は同じく先ほど定義した CustomText 型です。
 
 このようにして、Slate エディタを使用する際に、カスタム要素やテキストの型情報を明示的に定義することができ、型安全性を高めることができます。これにより、開発者はエディタ内で使用するデータ構造が正しいことを保証しやすくなります。
+
+### 3
+
+<code>ctrl+\`</code> は使ってるので、 `ctrl+'` に変更
+
+#### TODO
+
+renderElement の props の型。
+
+答え: RenderElementProps でした

@@ -6,7 +6,7 @@ import { useCallback, useState } from "react";
 // Import the Slate editor factory.
 import { type BaseEditor, Editor, Element, Transforms, createEditor } from "slate";
 // Import the Slate components and React plugin.
-import { Editable, type ReactEditor, Slate, withReact } from "slate-react";
+import { Editable, type ReactEditor, type RenderElementProps, Slate, withReact } from "slate-react";
 
 type CustomElement = { type: "paragraph" | "code"; children: CustomText[] };
 type CustomText = { text: string };
@@ -28,7 +28,7 @@ const initialValue: CustomElement[] = [
 
 // Define a React component renderer for our code blocks.
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const CodeElement = (props: any) => {
+const CodeElement = (props: RenderElementProps) => {
 	return (
 		<pre {...props.attributes}>
 			<code>{props.children}</code>
@@ -36,7 +36,7 @@ const CodeElement = (props: any) => {
 	);
 };
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-const DefaultElement = (props: any) => {
+const DefaultElement = (props: RenderElementProps) => {
 	return <p {...props.attributes}>{props.children}</p>;
 };
 
@@ -47,7 +47,7 @@ const App = () => {
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
-	const renderElement = useCallback((props: { element: { type: string } }) => {
+	const renderElement = useCallback((props: RenderElementProps) => {
 		switch (props.element.type) {
 			case "code":
 				return <CodeElement {...props} />;
