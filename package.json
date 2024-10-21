@@ -19,6 +19,7 @@
 		"license": "license-checker --csv | awk -F, 'BEGIN {OFS=\",\"} {temp=$2; $2=$3; $3=temp; print}' > tmp-license.csv"
 	},
 	"dependencies": {
+		"@slate-yjs/core": "^1.0.2",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"slate": "^0.110.2",

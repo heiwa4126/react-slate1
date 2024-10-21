@@ -3,13 +3,13 @@ import { createRoot } from "react-dom/client";
 // import App from "./App.tsx";
 // import PlainTextExample from "./PlainTextExample";
 import "./index.css";
-import { CollaborativeEditor } from "./Walkthroughs7";
+import App from "./Walkthroughs6";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
 	createRoot(rootElement).render(
 		<StrictMode>
-			<CollaborativeEditor />
+			<App />
 		</StrictMode>,
 	);
 } else {
