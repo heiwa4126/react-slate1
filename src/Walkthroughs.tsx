@@ -27,7 +27,6 @@ const initialValue: CustomElement[] = [
 ];
 
 // Define a React component renderer for our code blocks.
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const CodeElement = (props: RenderElementProps) => {
 	return (
 		<pre {...props.attributes}>
@@ -35,7 +34,6 @@ const CodeElement = (props: RenderElementProps) => {
 		</pre>
 	);
 };
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const DefaultElement = (props: RenderElementProps) => {
 	return <p {...props.attributes}>{props.children}</p>;
 };
