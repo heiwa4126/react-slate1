@@ -56,3 +56,11 @@ declare module "slate" {
 renderElement の props の型。
 
 答え: RenderElementProps でした
+
+### 4
+
+Leaf の props の型は RenderLeafProps.
+
+ややこしいのは事実だが、
+「問題がややこしいのでフレームワークもややこしくなる」
+のはしょうがない。

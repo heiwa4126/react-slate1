@@ -2,8 +2,8 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // import App from "./App.tsx";
 // import PlainTextExample from "./PlainTextExample";
+import App from "./Walkthroughs5";
 import "./index.css";
-import App from "./Walkthroughs";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
