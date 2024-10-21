@@ -35,7 +35,7 @@ const CustomEditor = {
 
 	isCodeBlockActive(editor: BaseEditor & ReactEditor) {
 		const [match] = Editor.nodes(editor, {
-			match: (n) => (n as Element).type === "code",
+			match: (n) => Element.isElement(n) && n.type === "code",
 		});
 		return !!match;
 	},
@@ -121,6 +121,26 @@ const App = () => {
 	// Add the editable component inside the context.
 	return (
 		<Slate editor={editor} initialValue={initialValue}>
+			<div>
+				<button
+					type="button"
+					onMouseDown={(event) => {
+						event.preventDefault();
+						CustomEditor.toggleBoldMark(editor);
+					}}
+				>
+					Bold
+				</button>
+				<button
+					type="button"
+					onMouseDown={(event) => {
+						event.preventDefault();
+						CustomEditor.toggleCodeBlock(editor);
+					}}
+				>
+					Code Block
+				</button>
+			</div>
 			<Editable
 				renderElement={renderElement}
 				renderLeaf={renderLeaf}

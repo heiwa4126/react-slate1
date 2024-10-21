@@ -11,7 +11,7 @@ import {
 	Editable,
 	type ReactEditor,
 	type RenderElementProps,
-	RenderLeafProps,
+	type RenderLeafProps,
 	Slate,
 	withReact,
 } from "slate-react";
