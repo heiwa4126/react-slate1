@@ -2,14 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // import App from "./App.tsx";
 // import PlainTextExample from "./PlainTextExample";
-import App from "./Walkthroughs6";
 import "./index.css";
+import { CollaborativeEditor } from "./Walkthroughs7";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
 	createRoot(rootElement).render(
 		<StrictMode>
-			<App />
+			<CollaborativeEditor />
 		</StrictMode>,
 	);
 } else {
