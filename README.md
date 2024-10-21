@@ -64,3 +64,49 @@ Leaf の props の型は RenderLeafProps.
 ややこしいのは事実だが、
 「問題がややこしいのでフレームワークもややこしくなる」
 のはしょうがない。
+
+## CSS 的なこと
+
+`<Slate>` は消えてなくなる。
+
+以下`<Editable>` に相当する部分のコピペ
+
+```html
+<div
+  role="textbox"
+  aria-multiline="true"
+  data-slate-editor="true"
+  data-slate-node="value"
+  contenteditable="true"
+  zindex="-1"
+  style="position: relative; white-space: pre-wrap; overflow-wrap: break-word;"
+>
+  <p data-slate-node="element">
+    <span data-slate-node="text"
+      ><span data-slate-leaf="true" style="font-weight: normal;"
+        ><span data-slate-string="true">A line of text in a </span></span
+      ></span
+    ><span data-slate-node="text"
+      ><span data-slate-leaf="true" style="font-weight: bold;"
+        ><span data-slate-string="true">paragraph</span></span
+      ></span
+    ><span data-slate-node="text"
+      ><span data-slate-leaf="true" style="font-weight: normal;"
+        ><span data-slate-string="true">.aaaa</span></span
+      ></span
+    >
+  </p>
+  <p data-slate-node="element">
+    <span data-slate-node="text"
+      ><span data-slate-leaf="true" style="font-weight: bold;"
+        ><span data-slate-string="true">aaaaa aaa</span></span
+      ></span
+    >
+  </p>
+  <p data-slate-node="element">
+    <span data-slate-node="text"
+      ><span data-slate-leaf="true" style="font-weight: normal;"><span data-slate-string="true">bbb</span></span></span
+    >
+  </p>
+</div>
+```

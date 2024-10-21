@@ -5,9 +5,10 @@
 // https://docs.slatejs.org/walkthroughs/05-executing-commands
 // https://docs.slatejs.org/walkthroughs/06-saving-to-a-database
 // Import React dependencies.
-import { useCallback, useState } from "react";
+import { useCallback, useMemo } from "react";
 // Import the Slate editor factory.
 import { type BaseEditor, Editor, Element, Transforms, createEditor } from "slate";
+import { HistoryEditor, withHistory } from "slate-history";
 // Import the Slate components and React plugin.
 import {
 	Editable,
@@ -17,6 +18,7 @@ import {
 	Slate,
 	withReact,
 } from "slate-react";
+import "./App.css";
 
 type CustomElement = { type: "paragraph" | "code"; children: CustomText[] };
 type CustomText = { text: string; bold?: boolean };
@@ -101,7 +103,8 @@ const Leaf = (props: RenderLeafProps) => {
 // Define our app...
 const App = () => {
 	// Create a Slate editor object that won't change across renders.
-	const [editor] = useState(() => withReact(createEditor()));
+	// const [editor] = useState(() => withReact(createEditor()));
+	const editor = useMemo(() => withHistory(withReact(createEditor())), []);
 
 	// Define a rendering function based on the element passed to `props`. We use
 	// `useCallback` here to memoize the function for subsequent renders.
@@ -143,7 +146,7 @@ const App = () => {
 						CustomEditor.toggleBoldMark(editor);
 					}}
 				>
-					Bold
+					Bold (Ctrl+b)
 				</button>
 				<button
 					type="button"
@@ -152,10 +155,12 @@ const App = () => {
 						CustomEditor.toggleCodeBlock(editor);
 					}}
 				>
-					Code Block
+					Code Block (ctrl+')
 				</button>
 			</div>
 			<Editable
+				className="custom-editor"
+				placeholder="ここにテキストを入力..."
 				renderElement={renderElement}
 				renderLeaf={renderLeaf}
 				onKeyDown={(event) => {
@@ -173,6 +178,16 @@ const App = () => {
 						case "b": {
 							event.preventDefault();
 							CustomEditor.toggleBoldMark(editor);
+							break;
+						}
+						case "z": {
+							event.preventDefault();
+							HistoryEditor.undo(editor);
+							break;
+						}
+						case "y": {
+							event.preventDefault();
+							HistoryEditor.redo(editor);
 							break;
 						}
 					}

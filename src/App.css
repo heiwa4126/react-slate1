@@ -1,1 +1,27 @@
 /* */
+.custom-editor {
+  border: 2px solid #ccc; /* 非フォーカス時の灰色の枠 */
+  padding: 0.5em;
+	margin: 0;
+  font-family: Arial, sans-serif;
+  // min-height: 100px;
+	min-height: 30em;
+  transition: border-color 0.2s ease; /* フォーカス時の枠色変化のアニメーション */
+}
+
+.custom-editor:focus {
+  border-color: #007bff; /* フォーカス時の青色の枠 */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* フォーカス時に影をつける */
+  outline: none; /* デフォルトのフォーカス枠を非表示にする */
+}
+.custom-editor::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.custom-editor p {
+	margin: 0;
+}
+.custom-editor pre {
+	margin: 0;
+}
