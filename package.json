@@ -24,7 +24,7 @@
 		"react-dom": "^18.3.1",
 		"slate": "^0.110.2",
 		"slate-history": "^0.109.0",
-		"slate-react": "^0.110.2"
+		"slate-react": "^0.110.3"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.13.0",
