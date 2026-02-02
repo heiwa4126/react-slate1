@@ -20,7 +20,7 @@
 	},
 	"dependencies": {
 		"@slate-yjs/core": "^1.0.2",
-		"react": "^19.0.0",
+		"react": "^19.2.4",
 		"react-dom": "^19.0.0",
 		"slate": "^0.112.0",
 		"slate-history": "^0.110.3",
@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.23.0",
-		"@types/react": "^19.0.12",
+		"@types/react": "^19.2.10",
 		"@types/react-dom": "^19.0.4",
 		"@vitejs/plugin-react-swc": "^3.8.1",
 		"eslint": "^9.23.0",
